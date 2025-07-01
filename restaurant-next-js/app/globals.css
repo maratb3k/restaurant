@@ -3,6 +3,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --neutral-0: #ffffff;
+  --neutral-100: #f7f7f7;
+  --neutral-200: #dadada;
+  --neutral-400: #898989;
+  --neutral-600: #575757;
+  --neutral-900: #232323;
+
+  --green-100: #e9ffea;
+  --green-200: #00ad0c;
+  --green-300: #008209;
+  --green-400: #006907;
+
+  --blue-100: #dee9ff;
+  --blue-400: #0e53e9;
+
+  --orange-100: #fff2d4;
+  --orange-400: #ffae00;
+
+  --red-100: #fce9ed;
+  --red-400: #b70b0b;
 }
 
 @theme inline {
@@ -10,17 +31,178 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-poppins: var(--font-poppins);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins, Helvetica, sans-serif;
+}
+
+
+/* Typography */
+.heading-1 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.heading-2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.heading-3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.block-title-text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.body-bold-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.caption-text {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.link-text {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.nav-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@media (min-width: 768px) {
+  .heading-1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .heading-2 {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .heading-3 {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .block-title-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .body-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .body-bold-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .caption-text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .link-text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .nav-text {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+
+  padding: 8px 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--green-200);
+  color: var(--neutral-0);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.btn-lg {
+  height: 56px;
+}
+
+.btn-sm {
+  height: 32px;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--green-300);
+}
+
+.btn:active:not(:disabled) {
+  background-color: var(--green-400);
+}
+
+.btn:disabled {
+  background-color: var(--neutral-400);
+  cursor: auto;
+}
+
+.btn-secondary {
+  background-color: var(--neutral-0);
+  color: var(--green-200);
+  border: 1px solid var(--green-200);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--green-100);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background-color: var(--green-200);
+  color: var(--neutral-0);
+}
+
+.btn-secondary:disabled {
+  background-color: var(--neutral-0);
+  color: var(--neutral-400);
+  border: 1px solid var(--neutral-200);
 }
