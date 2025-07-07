@@ -1,6 +1,7 @@
 import "../globals.css";
 import Header from "@/components/Header";
 import DishCard from "@/components/DishCard";
+import ReviewCard from "@/components/ReviewCard";
 
 export default function DesignPage() {
   return (
@@ -86,6 +87,15 @@ export default function DesignPage() {
           <DishCard disabled={true} />
           <DishCard disabled={false} />
           <DishCard disabled={true} />
+        </div>
+      </section>
+
+      <section className="m-4 p-4 bg-neutral-100 rounded-lg flex flex-col gap-2">
+        <h1 className="heading-1 mb-4">Review Card</h1>
+        <div className="flex flex-row flex-wrap gap-[16px] justify-center">
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
         </div>
       </section>
     </>
