@@ -1,5 +1,6 @@
 import "../globals.css";
 import Header from "@/components/Header";
+import DishCard from "@/components/DishCard";
 
 export default function DesignPage() {
   return (
@@ -76,6 +77,16 @@ export default function DesignPage() {
         <p className="text-xs text-neutral-500">Logged in</p>
         <Header isAuthenticated={true} role="waiter" />
         <p className="text-xs text-neutral-500">Waiter role</p>
+      </section>
+
+      <section className="m-4 p-4 bg-neutral-100 rounded-lg flex flex-col gap-2">
+        <h1 className="heading-1 mb-4">Dish Card</h1>
+        <div className="flex flex-row flex-wrap gap-[16px] justify-center">
+          <DishCard disabled={false} />
+          <DishCard disabled={true} />
+          <DishCard disabled={false} />
+          <DishCard disabled={true} />
+        </div>
       </section>
     </>
   );
