@@ -26,14 +26,6 @@
   --red-400: #b70b0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-poppins: var(--font-poppins);
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -205,4 +197,53 @@ body {
   background-color: var(--neutral-0);
   color: var(--neutral-400);
   border: 1px solid var(--neutral-200);
+}
+
+
+/* Header */
+header {
+  background-color: var(--neutral-0);
+  padding: 12px 40px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--green-200);
+}
+
+.logo-text-dark {
+  color: var(--neutral-900);
+}
+
+.header-btn {
+  height: 40px !important;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+nav a {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--neutral-900);
+}
+
+nav a.active {
+  color: var(--green-200);
+  border-bottom: 2px solid var(--green-200);
+}
+
+nav a:hover {
+  color: var(--green-200);
 }
