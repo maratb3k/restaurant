@@ -98,6 +98,42 @@ export default function DesignPage() {
           <ReviewCard />
         </div>
       </section>
+
+      <section className="m-4 p-4 bg-neutral-100 rounded-lg flex flex-col gap-2">
+        <h1 className="heading-1 mb-4">Input</h1>
+        <form action="" className="grid grid-cols-2 gap-4 w-[600px]">
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text" type="text" name="default" id="default" placeholder="Input text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text" type="text" name="default" id="default" placeholder="Input text" defaultValue="Text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text" type="text" name="default" id="default" placeholder="Input text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text" type="text" name="default" id="default" placeholder="Input text" defaultValue="Text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text error" type="text" name="default" id="default" placeholder="Input text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+          <div className="flex flex-col gap-[4px]">
+            <label className="body-bold-text" htmlFor="default">Label</label>
+            <input className="body-text error" type="text" name="default" id="default" placeholder="Input text" defaultValue="Text" />
+            <p className="caption-text text-[var(--neutral-400)]">Text</p>
+          </div>
+        </form>
+      </section>
     </>
   );
 }

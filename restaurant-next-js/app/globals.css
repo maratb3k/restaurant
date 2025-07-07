@@ -259,3 +259,33 @@ nav a:hover {
   width: 316px;
   height: 304px;
 }
+
+
+/* Input */
+input {
+  background-color: var(--neutral-0);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-200);
+  color: var(--neutral-900);
+  height: 56px;
+}
+
+input:not(.error):hover {
+  border: none;
+  box-shadow: 0px 0px 8px 0px #00AD0C33;
+}
+
+input:not(.error):focus {
+  outline: none;
+  border: 1px solid var(--green-200) !important;
+}
+
+input.error {
+  outline: none;
+  border: 1px solid var(--red-400);
+}
+
+input.error + p {
+  color: var(--red-400);
+}
