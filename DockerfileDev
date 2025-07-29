@@ -1,0 +1,28 @@
+# ===== Stage 1: Build the application =====
+FROM maven:3.9.6-eclipse-temurin-17 as builder
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Кэшируем зависимости (COPY отдельно pom.xml и скачиваем)
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Копируем весь проект и собираем .jar
+COPY . .
+RUN mvn clean package -DskipTests
+
+# ===== Stage 2: Create a minimal runtime image =====
+FROM public.ecr.aws/docker/library/openjdk:22-ea-17-slim-bookworm
+
+# Устанавливаем рабочую директорию в рантайм образе
+WORKDIR /app
+
+# Копируем jar-файл из предыдущего stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Порт, который будет слушать приложение (если нужно)
+EXPOSE 8080
+
+# Команда запуска
+ENTRYPOINT ["java", "-jar", "app.jar"]
