@@ -33,10 +33,10 @@ deploy:
     - echo "$SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
-      docker pull $DOCKERHUB_USERNAME/java-app:latest &&
-      docker stop java-app || true &&
-      docker rm java-app || true &&
-      docker run -d --name java-app -p 8080:8080 $DOCKERHUB_USERNAME/java-app:latest
+      sudo docker pull $DOCKERHUB_USERNAME/java-app:latest &&
+      sudo docker stop java-app || true &&
+      sudo docker rm java-app || true &&
+      sudo docker run -d --name java-app -p 8080:8080 $DOCKERHUB_USERNAME/java-app:latest
       "
   only:
     - main
