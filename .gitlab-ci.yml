@@ -1,0 +1,42 @@
+image: docker:24.0.7
+
+services:
+  - docker:24.0.7-dind
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
+
+build-image:
+  stage: build
+  script:
+    - docker build -t $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA .
+    - docker push $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA
+    - docker tag $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA $DOCKERHUB_USERNAME/java-app:latest
+    - docker push $DOCKERHUB_USERNAME/java-app:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
+      docker pull $DOCKERHUB_USERNAME/java-app:latest &&
+      docker stop java-app || true &&
+      docker rm java-app || true &&
+      docker run -d --name java-app -p 8080:8080 $DOCKERHUB_USERNAME/java-app:latest
+      "
+  only:
+    - main
