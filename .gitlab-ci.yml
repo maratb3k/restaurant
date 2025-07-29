@@ -16,9 +16,9 @@ before_script:
 build-image:
   stage: build
   script:
-    - docker build -t $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA .
-    - docker push $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA
-    - docker tag $DOCKERHUB_USERNAME/java-app:$CI_COMMIT_SHORT_SHA $DOCKERHUB_USERNAME/java-app:latest
+    - docker build -f dockerfileDev -t $DOCKERHUB_USERNAME/java-app:$CI_PIPELINE_ID.$CI_COMMIT_SHORT_SHA .
+    - docker push $DOCKERHUB_USERNAME/java-app:$CI_PIPELINE_ID.$CI_COMMIT_SHORT_SHA
+    - docker tag $DOCKERHUB_USERNAME/java-app:$CI_PIPELINE_ID.$CI_COMMIT_SHORT_SHA $DOCKERHUB_USERNAME/java-app:latest
     - docker push $DOCKERHUB_USERNAME/java-app:latest
   only:
     - main
