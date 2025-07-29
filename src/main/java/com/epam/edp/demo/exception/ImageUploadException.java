@@ -1,0 +1,7 @@
+package com.epam.edp.demo.exception;
+
+public class ImageUploadException extends RuntimeException {
+    public ImageUploadException(String message) {
+        super(message);
+    }
+}
