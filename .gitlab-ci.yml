@@ -30,7 +30,7 @@ deploy:
     - apk add --no-cache openssh
   script:
     - mkdir -p ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - echo "$SSH_PRIVATE_KEY_B64" | base64 -d > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
       docker pull $DOCKERHUB_USERNAME/java-app:latest &&
