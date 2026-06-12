@@ -1,0 +1,9 @@
+restaurant-backend/target/classes
+restaurant-backend/minio-data/*
+restaurant-backend/seaweedfs-data/*
+restaurant-backend/broker/*
+*.zip
+*.jar
+restaurant-backend/src/main/resources/images/*
+*.DS_Store
+restaurant-backend/.idea/*
