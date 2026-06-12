@@ -1,0 +1,11 @@
+target/
+minio-data/
+seaweedfs-data/
+broker/
+*.zip
+*.jar
+src/main/resources/images/*
+src/main/resources/images.zip
+.DS_Store
+.idea/
+seaweedfs/s3.json
